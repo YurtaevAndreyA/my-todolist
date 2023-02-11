@@ -26,13 +26,13 @@ function App() {
     ]
 
 
-  return (
-      <div className="App">
-        <Todolist title={titleTodolist_1} arList={arTasks1}/>
-        <Todolist title={titleTodolist_2} arList={arTasks2}/>
-        <Todolist title={titleTodolist_3} arList={arTasks3}/>
-      </div>
-  );
+    return (
+        <div className="App">
+            <Todolist title={titleTodolist_1} arList={arTasks1}/>
+            <Todolist title={titleTodolist_2} arList={arTasks2}/>
+            <Todolist title={titleTodolist_3} arList={arTasks3}/>
+        </div>
+    );
 }
 
 export default App;

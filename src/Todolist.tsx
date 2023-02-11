@@ -12,6 +12,20 @@ type TodolistPropsType = {
 }
 
 const Todolist = (props: TodolistPropsType) => {
+    let listItems = props.arList.length
+
+        ? props.arList.map((elArList: ItemType) => {
+            return (
+                <li key={elArList.id}>
+                    <input type="checkbox" checked={elArList.isDone}/>
+                    <span>{elArList.name}</span>
+                </li>
+            )
+        })
+
+        : <span>Empty list</span>
+
+
     return (
         <div>
             <h3>{props.title}</h3>
@@ -20,18 +34,7 @@ const Todolist = (props: TodolistPropsType) => {
                 <button>+</button>
             </div>
             <ul>
-                <li key={props.arList[0].id}>
-                    <input type="checkbox" checked={props.arList[0].isDone}/>
-                    <span>{props.arList[0].name}</span>
-                </li>
-                <li key={props.arList[1].id}>
-                    <input type="checkbox" checked={props.arList[1].isDone}/>
-                    <span>{props.arList[1].name}</span>
-                </li>
-                <li key={props.arList[2].id}>
-                    <input type="checkbox" checked={props.arList[2].isDone}/>
-                    <span>{props.arList[2].name}</span>
-                </li>
+                {listItems}
             </ul>
             <div>
                 <button>All</button>
