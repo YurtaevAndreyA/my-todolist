@@ -9,22 +9,25 @@ export type ItemType = {
 type TodolistPropsType = {
     title: string
     arList: ItemType[]
+    removeItem: (idTask: number) => void
 }
 
 const Todolist = (props: TodolistPropsType) => {
     let listItems = props.arList.length
 
         ? props.arList.map((elArList: ItemType) => {
+            const removeItem = () => props.removeItem(elArList.id);
+
             return (
                 <li key={elArList.id}>
                     <input type="checkbox" checked={elArList.isDone}/>
                     <span>{elArList.name}</span>
+                    <button onClick={removeItem}>x</button>
                 </li>
             )
         })
 
         : <span>Empty list</span>
-
 
     return (
         <div>
