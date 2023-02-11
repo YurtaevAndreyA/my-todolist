@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Todolist = () => {
+type TodolistPropsType = {
+    title: string
+}
+
+const Todolist = (props: TodolistPropsType) => {
     return (
         <div>
-            <h3>What to learn</h3>
+            <h3>{props.title}</h3>
             <div>
                 <input/>
                 <button>+</button>
@@ -25,3 +29,15 @@ const Todolist = () => {
 };
 
 export default Todolist;
+
+
+// Вместо:
+// const Todolist = (props: TodolistPropsType) => {
+// можно писать:
+// const Todolist: React.FC<TodolistPropsType> = (props) => {
+// или даже:
+// изменим немного импорт:
+// import React, {FC} from 'react'
+// и
+// const TodoList: FC<TodolistPropsType> = (props) => {
+// Такой вариант более "взрослый" относительно первоначального :)
