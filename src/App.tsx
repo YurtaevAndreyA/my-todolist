@@ -1,16 +1,36 @@
 import React from 'react';
 import './App.css';
-import Todolist from "./Todolist";
+import Todolist, {ItemType} from "./Todolist";
 
 function App() {
     const titleTodolist_1: string = 'What to learn';
     const titleTodolist_2: string = 'What to bay';
     const titleTodolist_3: string = 'What to give';
+
+    const arTasks1: ItemType[] = [
+        {id: 1, isDone: true, name: 'HTML&CSS'},
+        {id: 2, isDone: false, name: 'TS'},
+        {id: 3, isDone: false, name: 'React'},
+    ]
+
+    const arTasks2: ItemType[] = [
+        {id: 1, isDone: true, name: 'Vodka'},
+        {id: 2, isDone: true, name: 'Salt'},
+        {id: 3, isDone: true, name: 'Bread'},
+    ]
+
+    const arTasks3: ItemType[] = [
+        {id: 1, isDone: false, name: 'First'},
+        {id: 2, isDone: true, name: 'Second'},
+        {id: 3, isDone: false, name: 'Third'},
+    ]
+
+
   return (
       <div className="App">
-        <Todolist title={titleTodolist_1}/>
-        <Todolist title={titleTodolist_2}/>
-        <Todolist title={titleTodolist_3}/>
+        <Todolist title={titleTodolist_1} arList={arTasks1}/>
+        <Todolist title={titleTodolist_2} arList={arTasks2}/>
+        <Todolist title={titleTodolist_3} arList={arTasks3}/>
       </div>
   );
 }

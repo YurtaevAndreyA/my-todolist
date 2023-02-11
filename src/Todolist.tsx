@@ -1,7 +1,14 @@
 import React from 'react';
 
+export type ItemType = {
+    isDone: boolean
+    name: string
+    id: number
+}
+
 type TodolistPropsType = {
     title: string
+    arList: ItemType[]
 }
 
 const Todolist = (props: TodolistPropsType) => {
@@ -13,10 +20,17 @@ const Todolist = (props: TodolistPropsType) => {
                 <button>+</button>
             </div>
             <ul>
-                <li><input type="checkbox" checked={true}/>
-                    <span>HTML&CSS</span></li>
-                <li><input type="checkbox" checked={true}/> <span>JS</span></li>
-                <li><input type="checkbox" checked={false}/> <span>React</span>
+                <li key={props.arList[0].id}>
+                    <input type="checkbox" checked={props.arList[0].isDone}/>
+                    <span>{props.arList[0].name}</span>
+                </li>
+                <li key={props.arList[1].id}>
+                    <input type="checkbox" checked={props.arList[1].isDone}/>
+                    <span>{props.arList[1].name}</span>
+                </li>
+                <li key={props.arList[2].id}>
+                    <input type="checkbox" checked={props.arList[2].isDone}/>
+                    <span>{props.arList[2].name}</span>
                 </li>
             </ul>
             <div>
@@ -41,3 +55,7 @@ export default Todolist;
 // и
 // const TodoList: FC<TodolistPropsType> = (props) => {
 // Такой вариант более "взрослый" относительно первоначального :)
+
+// Когда мы задаем свой тип - неважно в каком порядке идут свойства в нем
+
+// Создаем тип не в компоненте (не в коем-случае), а выше компоненты
